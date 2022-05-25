@@ -87,6 +87,198 @@ namespace BlazorApp2.Server.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("BlazorApp2.Shared.HinhAnh", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ThiSinhId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ThiSinhId");
+
+                    b.ToTable("HinhAnh");
+                });
+
+            modelBuilder.Entity("BlazorApp2.Shared.ThiSinh", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("BacHoc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CBTuVan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cmnd")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Diachi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Diem1111")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem1112")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem1211")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem1212")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem1TB12")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem2111")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem2112")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem2211")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem2212")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem2TB12")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem3111")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem3112")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem3211")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem3212")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diem3TB12")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiemTBPT1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiemTBPT2")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DiemTBPT3")
+                        .HasColumnType("float");
+
+                    b.Property<int>("DiemUuTienDT")
+                        .HasColumnType("int");
+
+                    b.Property<double>("DiemUuTienKV")
+                        .HasColumnType("float");
+
+                    b.Property<string>("DoiTuong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GioiTinh")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HK11")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HK12")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoTen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KhoiXetTuyen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KhuVuc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MaDKXT")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MaNganhXetTuyen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mon1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mon2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mon3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NgaySinh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Ngaygui")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Sdt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Tong")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TrangThai")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TruongTHPT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("diem1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("diem2")
+                        .HasColumnType("float");
+
+                    b.Property<double>("diem3")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ThiSinh");
+                });
+
             modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
@@ -363,6 +555,17 @@ namespace BlazorApp2.Server.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BlazorApp2.Shared.HinhAnh", b =>
+                {
+                    b.HasOne("BlazorApp2.Shared.ThiSinh", "ThiSinh")
+                        .WithMany()
+                        .HasForeignKey("ThiSinhId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ThiSinh");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -15,6 +15,8 @@ namespace BlazorApp2.Server.Data
         {
         }
 
+        public DbSet<ThiSinh> ThiSinh { get; set; }
+        public DbSet<HinhAnh> HinhAnh { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

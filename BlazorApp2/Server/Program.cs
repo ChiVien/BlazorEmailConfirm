@@ -1,11 +1,13 @@
-using BlazorApp2.Server.Data;
+global using Microsoft.EntityFrameworkCore;
+global using BlazorApp2.Shared;
+global using BlazorApp2.Server.Data;
 using BlazorApp2.Server.Models;
-using BlazorApp2.Server.Services;
+using BlazorApp2.Server.Services; 
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Company.WebApplication1
 {
