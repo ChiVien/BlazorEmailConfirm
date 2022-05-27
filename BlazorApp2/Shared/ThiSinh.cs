@@ -57,5 +57,6 @@ namespace BlazorApp2.Shared
         public string TrangThai { get; set; }
         public DateTime CreateDateTime { get; set; }
         public DateTime UpdateDateTime { get; set; }
+        public List<HinhAnh> HinhAnhs { get; set; } = new List<HinhAnh>();
     }
 }

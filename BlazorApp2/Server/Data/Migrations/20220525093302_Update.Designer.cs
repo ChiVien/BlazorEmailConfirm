@@ -4,6 +4,7 @@ using BlazorApp2.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp2.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220525093302_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,7 +101,7 @@ namespace BlazorApp2.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ThiSinhId")
+                    b.Property<int?>("ThiSinhId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -559,13 +561,9 @@ namespace BlazorApp2.Server.Migrations
 
             modelBuilder.Entity("BlazorApp2.Shared.HinhAnh", b =>
                 {
-                    b.HasOne("BlazorApp2.Shared.ThiSinh", "ThiSinh")
+                    b.HasOne("BlazorApp2.Shared.ThiSinh", null)
                         .WithMany("HinhAnhs")
-                        .HasForeignKey("ThiSinhId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ThiSinh");
+                        .HasForeignKey("ThiSinhId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
