@@ -1,6 +1,9 @@
 global using Microsoft.EntityFrameworkCore;
 global using BlazorApp2.Shared;
 global using BlazorApp2.Server.Data;
+global using BlazorApp2.Server.Services.HinhAnhService;
+global using System.Reflection;
+
 using BlazorApp2.Server.Models;
 using BlazorApp2.Server.Services; 
 using FluentAssertions.Common;
@@ -22,6 +25,8 @@ namespace Company.WebApplication1
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
+            builder.Services.AddScoped<IHinhAnhService, HinhAnhService>();
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -34,8 +39,8 @@ namespace Company.WebApplication1
                 .AddIdentityServerJwt();
 
             builder.Services.AddControllersWithViews();
-
-
+            builder.Services.AddControllersWithViews()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             builder.Services.Configure<MailSettings>(connectionString2);
             builder.Services.AddTransient<IEmailSender, SendMailService>();
             
