@@ -1,3 +1,4 @@
+global using Microsoft.AspNetCore.Components.Authorization;
 using BlazorApp2.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -18,6 +19,8 @@ namespace Company.WebApplication1
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorApp2.ServerAPI"));
+
+            //builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthStateProvider>();
 
             builder.Services.AddApiAuthorization();
 

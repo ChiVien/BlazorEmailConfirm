@@ -1,7 +1,6 @@
 global using Microsoft.EntityFrameworkCore;
 global using BlazorApp2.Shared;
 global using BlazorApp2.Server.Data;
-using BlazorApp2.Server.Models;
 using BlazorApp2.Server.Services; 
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication;
