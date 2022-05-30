@@ -77,6 +77,8 @@
                     return extension = ".png";
                 case "/9J/4":
                     return extension = ".jpg";
+                default:
+                    return extension = ".jpg";
             }
             return extension;
         }
