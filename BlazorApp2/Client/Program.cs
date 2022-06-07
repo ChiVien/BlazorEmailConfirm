@@ -28,6 +28,9 @@ namespace Company.WebApplication1
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorApp2.ServerAPI"));
 
             //builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthStateProvider>();
+            builder.Services.AddScoped<ISinhvientrungtuyen, Sinhvientrungtuyen>();
+
+            builder.Services.AddScoped<IAcountService, AcountService>();
 
             builder.Services.AddApiAuthorization();
 
