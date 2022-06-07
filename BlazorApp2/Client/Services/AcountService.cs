@@ -4,15 +4,15 @@ using System.Net.Http.Json;
 
 namespace BlazorApp2.Client.Services
 {
-    public class AccountService : IAcountService
+    public class AcountService : IAcountService
     {
         public readonly HttpClient _http;
         public readonly NavigationManager _navigationManager;
         public List<Account> Accounts { get; set; } = new List<Account>();
-        public AccountService(HttpClient Http, NavigationManager NavigationManager)
+        public AcountService(HttpClient http, NavigationManager navigationManager)
         {
-            _http = Http; 
-            _navigationManager = NavigationManager;
+            _http = http; 
+            _navigationManager = navigationManager;
         }
 
         public async Task getAccount()

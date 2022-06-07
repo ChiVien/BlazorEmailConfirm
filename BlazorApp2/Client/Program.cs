@@ -1,4 +1,5 @@
 global using Microsoft.AspNetCore.Components.Authorization;
+global using BlazorApp2.Client.Services;
 using BlazorApp2.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -21,6 +22,7 @@ namespace Company.WebApplication1
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorApp2.ServerAPI"));
 
             //builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthStateProvider>();
+            builder.Services.AddScoped<IAcountService,AcountService>();
 
             builder.Services.AddApiAuthorization();
 

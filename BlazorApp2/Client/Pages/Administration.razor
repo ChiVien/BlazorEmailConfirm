@@ -47,5 +47,8 @@
 </table>
 
 @code {
-    
+    protected override async Task OnInitializedAsync()
+    {
+        await AcountService.getAccount();
+    }
 }
