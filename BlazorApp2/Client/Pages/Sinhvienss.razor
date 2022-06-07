@@ -209,6 +209,13 @@ else
 				}
 			}
 		</div>*@
+		<MudCarousel Class="mud-width-full" Style="height:500px;" ShowArrows="@arrows" ShowBullets="@bullets" AutoCycle="@autocycle" TData="object">
+			@foreach(var img in thish.HinhAnhs){
+				<MudCarouselItem Transition="transition" Color="@Color.Primary">
+					<img src="https://localhost:7279/uploads/@img.Image" alt="ccgido" style="width:100%; height: auto"/>
+				</MudCarouselItem>
+			}
+		</MudCarousel>
 		<div class="mb-0">
 			<label for="images">imagge(s)</label>
 			<inputfile id="images" onchange="onfilechange" multiple class="form-control"></inputfile>
@@ -218,6 +225,11 @@ else
 		<button type="button" class="btn btn-danger" @onclick="Deletethisinh">@btnDelete</button>
 </EditForm>
 @code {
+	private bool arrows = true;
+    private bool bullets = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
 	[Parameter]
 	public int? Id { get; set; }
 
