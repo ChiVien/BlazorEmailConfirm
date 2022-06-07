@@ -19,6 +19,7 @@ namespace BlazorApp2.Server.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            Console.WriteLine("asdasd");
         }
 
         [HttpGet]
