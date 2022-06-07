@@ -210,7 +210,7 @@ else
 			}
 		</div>*@
 		<MudCarousel Class="mud-width-full" Style="height:500px;" ShowArrows="@arrows" ShowBullets="@bullets" AutoCycle="@autocycle" TData="object">
-			@foreach(var img in thish.HinhAnhs){
+			@foreach(var img in thish.HinhAnhs){ 
 				<MudCarouselItem Transition="transition" Color="@Color.Primary">
 					<img src="https://localhost:7279/uploads/@img.Image" alt="ccgido" style="width:100%; height: auto"/>
 				</MudCarouselItem>
