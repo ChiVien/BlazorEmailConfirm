@@ -1,0 +1,52 @@
+﻿@page "/sinhvienss"
+@inject ISinhvientrungtuyen Sinhvientrungtuyen
+@inject NavigationManager NavigationManager
+<h3>Sinh Vien</h3>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>Họ Tên</td>
+            <td>Ngày Sinh</td>
+            <td>Bậc Học</td>
+            <td>Mã ngành xét tuyển</td>
+            <td>Cán bộ tư vấn</td>
+            <td>Trạng Thái</td>
+            <td></td>
+		</tr>
+	</thead>
+    <tbody>
+        @foreach (var thish in Sinhvientrungtuyen.thisinhs)
+       {
+            <tr>
+                <td>@thish.HoTen</td>
+                <td>@thish.NgaySinh</td>
+                <td>@thish.BacHoc</td>
+                <td>@thish.MaNganhXetTuyen</td>
+                <td>@thish.CBTuVan</td>
+                <td>@thish.TrangThai</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="(()=>showthish(thish.Id))"><i class="oi oi-pencil"></i></button>
+                    @*<button class="btn btn-primary" @onclick="Createthish"><i class="oi oi-plus"></i></button>*@
+                </td>
+            </tr>           
+       }
+    </tbody>
+    <br />
+  <button class="btn btn-primary" @onclick="Createthish">Create Sinh Vien</button>
+</table>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await Sinhvientrungtuyen.Getthisinh();
+    }
+    void showthish(int id)
+    {
+        NavigationManager.NavigateTo($"thisinh/{id}");
+    }
+     void Createthish()
+    {
+        NavigationManager.NavigateTo("/thisinh");
+    }
+    
+}
