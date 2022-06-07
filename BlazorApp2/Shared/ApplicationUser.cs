@@ -4,5 +4,6 @@ namespace BlazorApp2.Shared
 {
     public class ApplicationUser : IdentityUser
     {
+
     }
 }

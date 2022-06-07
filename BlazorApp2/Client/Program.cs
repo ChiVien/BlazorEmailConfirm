@@ -1,9 +1,14 @@
+global using BlazorApp2.Shared;
+global using BlazorApp2.Client.Services.SinhvienServices;
+
 global using Microsoft.AspNetCore.Components.Authorization;
 global using BlazorApp2.Client.Services;
 using BlazorApp2.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using BlazorApp2.Client.Services.SinhvienServices;
+using MudBlazor.Services;
 
 namespace Company.WebApplication1
 {
@@ -12,6 +17,7 @@ namespace Company.WebApplication1
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.Services.AddMudServices();
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
@@ -22,7 +28,6 @@ namespace Company.WebApplication1
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("BlazorApp2.ServerAPI"));
 
             //builder.Services.AddScoped<AuthenticationStateProvider,CustomAuthStateProvider>();
-            builder.Services.AddScoped<IAcountService,AcountService>();
 
             builder.Services.AddApiAuthorization();
 

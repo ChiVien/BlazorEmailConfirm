@@ -1,0 +1,291 @@
+﻿@page "/thisinh"
+@page "/thisinh/{id:int}"
+@inject ISinhvientrungtuyen Sinhvientrungtuyen
+@inject NavigationManager NavigationManager
+
+@if (Id == null)
+{
+	<PageTitle>Thêm Sinh Viên</PageTitle>
+	<h3>Thêm Sinh Viên</h3>
+}
+else
+{
+	<PageTitle>Chỉnh sửa @thish.HoTen</PageTitle>
+	<h3>Chỉnh sửa @thish.HoTen</h3>
+}
+<EditForm Model="thish" OnSubmit="HandleSubmit">
+		<div>
+			<label for="hoten">Họ Tên</label>
+			<InputText id="hoten" @bind-Value="thish.HoTen" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="NgaySinh">Ngày Sinh</label>
+			<InputText id="NgaySinh" @bind-Value="thish.NgaySinh" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="Bachoc">Bậc Học</label>
+			<InputText id="Bachoc" @bind-Value="thish.BacHoc" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="manganhxettuyen">Mã ngành xét tuyển</label>
+			<InputText id="manganhxettuyen" @bind-Value="thish.MaNganhXetTuyen" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="canbotuvan">Cán bộ tư vấn</label>
+			<InputText id="canbotuvan" @bind-Value="thish.CBTuVan" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="cmnd">CMND/Thẻ Căn Cước</label>
+			<InputText id="cmnd" @bind-Value="thish.Cmnd" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="doituong">Đối Tượng</label>
+			<InputText id="doituong" @bind-Value="thish.DoiTuong" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="gioitinh">Giới Tính</label>
+			<InputText id="gioitinh" @bind-Value="thish.GioiTinh" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="diemuutiendt">Điểm Ưu Tiên DT</label>
+			<InputNumber id="diemuutiendt" @bind-Value="thish.DiemUuTienDT" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="khuvuc">Khu Vực</label>
+			<InputText id="khuvuc" @bind-Value="thish.KhuVuc" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="diemuutienkv">Điểm Ưu Tiên KV</label>
+			<InputNumber id="diemuutienkv" @bind-Value="thish.DiemUuTienKV" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="khoixettuyen">Khối Xét Tuyển</label>
+			<InputText id="khoixettuyen" @bind-Value="thish.KhoiXetTuyen" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="mon1">Môn 1</label>
+			<InputText id="mon1" @bind-Value="thish.Mon1" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="mon2">Môn 2</label>
+			<InputText id="mon2" @bind-Value="thish.Mon2" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="mon3">Môn 3</label>
+			<InputText id="mon3" @bind-Value="thish.Mon3" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="diem1111">Điểm1111</label>
+			<InputNumber id="diem1111" @bind-Value="thish.Diem1111" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem1211">Điểm1211</label>
+		
+			<InputNumber id="diem1211" @bind-Value="thish.Diem1211" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem1112">Điểm1112</label>
+			<InputNumber id="diem1112" @bind-Value="thish.Diem1112" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem1212">Điểm1212</label>
+			<InputNumber id="diem1212" @bind-Value="thish.Diem1212" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem1TB12">Điểm1TB12</label>
+			<InputNumber id="diem1TB12" @bind-Value="thish.Diem1TB12" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2111">Điểm2111</label>
+			<InputNumber id="diem2111" @bind-Value="thish.Diem2111" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2211">Điểm2211</label>
+			<InputNumber id="diem2211" @bind-Value="thish.Diem2211" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2112">Điểm2112</label>
+			<InputNumber id="diem2112" @bind-Value="thish.Diem2112" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2212">Điểm2212</label>
+			<InputNumber id="diem2212" @bind-Value="thish.Diem2212" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2TB12">Điểm2TB12</label>
+			<InputNumber id="diem2TB12" @bind-Value="thish.Diem2TB12" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem3111">Điểm3111</label>
+			<InputNumber id="diem3111" @bind-Value="thish.Diem3111" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem3211">Điểm3211</label>
+			<InputNumber id="diem3211" @bind-Value="thish.Diem3211" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem3112">Điểm3112</label>
+			<InputNumber id="diem3112" @bind-Value="thish.Diem3112" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem3TB12">Điểm3TB12</label>
+			<InputNumber id="diem3TB12" @bind-Value="thish.Diem3TB12" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diemTBPT1">ĐiểmTBPT1</label>
+			<InputNumber id="diemTBPT1" @bind-Value="thish.DiemTBPT1" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diemTBPT2">ĐiểmTBPT2</label>
+			<InputNumber id="diemTBPT2" @bind-Value="thish.DiemTBPT2" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diemTBPT3">ĐiểmTBPT3</label>
+			<InputNumber id="diemTBPT3" @bind-Value="thish.DiemTBPT3" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="truongTHPT">Trường THPT</label>
+			<InputText id="truongTHPT" @bind-Value="thish.TruongTHPT" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="hK11">HK11</label>
+			<InputText id="hK11" @bind-Value="thish.HK11" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="hK12">HK12</label>
+			<InputText id="hK12" @bind-Value="thish.HK12" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="maDKXT">Mã DKXT</label>
+			<InputNumber id="maDKXT" @bind-Value="thish.MaDKXT" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem1">Điểm 1</label>
+			<InputNumber id="diem1" @bind-Value="thish.diem1" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem2">Điểm 2</label>
+			<InputNumber id="diem2" @bind-Value="thish.diem2" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="diem3">Điểm 3</label>
+			<InputNumber id="diem3" @bind-Value="thish.diem3" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="tong">Tổng</label>
+			<InputNumber id="tong" @bind-Value="thish.Tong" class="form-control"></InputNumber>
+		</div>
+		<div>
+			<label for="sdt">Số Điện Thoại</label>
+			<InputText id="sdt" @bind-Value="thish.Sdt" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="email">Email</label>
+			<InputText id="email" @bind-Value="thish.Email" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="diachi">Địa Chỉ</label>
+			<InputText id="diachi" @bind-Value="thish.Diachi" class="form-control"></InputText>
+		</div>
+		<div>
+			<label for="ngaygui">Ngày Gửi</label>
+			<InputDate id="ngaygui" @bind-Value="thish.Ngaygui" class="form-control" readonly="fase"></InputDate>
+		</div>
+		<br />
+		@*<div>
+			<label for="image">Images Url</label>
+			<InputText id="imagesurl" @bind-Value="thish.HinhAnhs" class="form-control"></InputText>
+		</div>*@
+		@*<div class="md-0">
+			@if(!string.IsNullOrEmpty(thish.HinhAnhs))
+			{
+			<img src="@thish.HinhAnhs" />
+			}
+			else
+			{
+				foreach (var imag in thish.HinhAnhs)
+				{
+					<img src="@imag.Image"/>
+				}
+			}
+		</div>*@
+		<MudCarousel Class="mud-width-full" Style="height:500px;" ShowArrows="@arrows" ShowBullets="@bullets" AutoCycle="@autocycle" TData="object">
+			@foreach(var img in thish.HinhAnhs){ 
+				<MudCarouselItem Transition="transition" Color="@Color.Primary">
+					<img src="https://localhost:7279/uploads/@img.Image" alt="ccgido" style="width:100%; height: auto"/>
+				</MudCarouselItem>
+			}
+		</MudCarousel>
+		<div class="mb-0">
+			<label for="images">imagge(s)</label>
+			<inputfile id="images" onchange="onfilechange" multiple class="form-control"></inputfile>
+		</div>
+		<br />
+		<button type="submit" class="btn btn-primary">@btnText</button>
+		<button type="button" class="btn btn-danger" @onclick="Deletethisinh">@btnDelete</button>
+</EditForm>
+@code {
+	private bool arrows = true;
+    private bool bullets = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+	[Parameter]
+	public int? Id { get; set; }
+
+	string btnText = string.Empty;
+	string btnDelete = string.Empty;
+
+	ThiSinh thish = new ThiSinh();
+	//HinhAnh hinhAnh = new HinhAnh();
+	protected override async Task OnInitializedAsync()
+	{
+		btnText = Id == null ? "Lưu Sinh Vien" : "Cập Nhật Sinh Viên";
+		btnDelete = Id == null ? "Cancel Thi Sinh" : "Delete Thi Sinh";
+		await Sinhvientrungtuyen.Getthisinh();
+	}
+	protected override async Task OnParametersSetAsync()
+	{
+		if (Id == null)
+		{
+			//Create 
+		}
+		else
+		{
+			thish = await Sinhvientrungtuyen.GetSingleThisinh((int)Id);
+		}
+	}
+	async Task HandleSubmit()
+	{
+		if (Id == null)
+		{
+			thish.TrangThai = "Pending";
+			//thish.Ngaygui = DateTime.Now;
+			thish.CreateDateTime = DateTime.Now;
+			thish.UpdateDateTime = DateTime.Now;
+			await Sinhvientrungtuyen.CreateThiSinh(thish);
+		}
+		else
+		{
+			await Sinhvientrungtuyen.UpdateThiSinh(thish);
+		}
+	}
+	async Task Deletethisinh()
+	{
+		if (Id != null)
+			await Sinhvientrungtuyen.DeleteThiSinh(thish.Id);
+		NavigationManager.NavigateTo("/sinhvienss");
+	}
+	async Task OnFileChange(InputFileChangeEventArgs e)
+	{
+		var format = "image/png";
+		foreach (var imag in e.GetMultipleFiles(int.MaxValue))
+		{
+			var resizedImage = await imag.RequestImageFileAsync(format, 200, 200);
+			var buffer = new byte[resizedImage.Size];
+			await resizedImage.OpenReadStream().ReadAsync(buffer);
+			var imageDate = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+			thish.HinhAnhs.Add(new HinhAnh {Image =imageDate});
+		}
+	}
+}
