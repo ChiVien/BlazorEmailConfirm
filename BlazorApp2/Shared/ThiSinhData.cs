@@ -10,7 +10,13 @@ namespace BlazorApp2.Shared
     [NotMapped]
     public class ThiSinhData
     {
-        public List<AnhUpload> images;
-        public ThiSinh thiSinh;
+        public List<AnhUpload> images { get; set; }
+        public ThiSinh thiSinh { get; set; }
+
+        public ThiSinhData(ThiSinh thiSinh)
+        {
+            this.images = new List<AnhUpload>();
+            this.thiSinh = thiSinh;
+        }
     }
 }
