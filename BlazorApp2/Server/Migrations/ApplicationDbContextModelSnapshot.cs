@@ -4,7 +4,6 @@ using BlazorApp2.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,10 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp2.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220525093302_Update")]
-    partial class Update
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +22,28 @@ namespace BlazorApp2.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BlazorApp2.Server.Models.ApplicationUser", b =>
+            modelBuilder.Entity("BlazorApp2.Shared.Account", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("BlazorApp2.Shared.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -86,7 +105,7 @@ namespace BlazorApp2.Server.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("BlazorApp2.Shared.HinhAnh", b =>
@@ -101,7 +120,7 @@ namespace BlazorApp2.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ThiSinhId")
+                    b.Property<int>("ThiSinhId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -561,9 +580,13 @@ namespace BlazorApp2.Server.Migrations
 
             modelBuilder.Entity("BlazorApp2.Shared.HinhAnh", b =>
                 {
-                    b.HasOne("BlazorApp2.Shared.ThiSinh", null)
+                    b.HasOne("BlazorApp2.Shared.ThiSinh", "ThiSinh")
                         .WithMany("HinhAnhs")
-                        .HasForeignKey("ThiSinhId");
+                        .HasForeignKey("ThiSinhId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ThiSinh");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -577,7 +600,7 @@ namespace BlazorApp2.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("BlazorApp2.Server.Models.ApplicationUser", null)
+                    b.HasOne("BlazorApp2.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -586,7 +609,7 @@ namespace BlazorApp2.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("BlazorApp2.Server.Models.ApplicationUser", null)
+                    b.HasOne("BlazorApp2.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -601,7 +624,7 @@ namespace BlazorApp2.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BlazorApp2.Server.Models.ApplicationUser", null)
+                    b.HasOne("BlazorApp2.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -610,7 +633,7 @@ namespace BlazorApp2.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("BlazorApp2.Server.Models.ApplicationUser", null)
+                    b.HasOne("BlazorApp2.Shared.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

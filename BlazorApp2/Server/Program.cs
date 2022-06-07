@@ -4,7 +4,7 @@ global using BlazorApp2.Server.Data;
 global using BlazorApp2.Server.Services.HinhAnhService;
 global using System.Reflection;
 
-using BlazorApp2.Server.Models;
+using BlazorApp2.Shared;
 using BlazorApp2.Server.Services; 
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication;
