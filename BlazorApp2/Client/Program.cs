@@ -1,6 +1,7 @@
 global using BlazorApp2.Shared;
 global using BlazorApp2.Client.Services.SinhvienServices;
 
+global using Microsoft.AspNetCore.Components.Authorization;
 using BlazorApp2.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
