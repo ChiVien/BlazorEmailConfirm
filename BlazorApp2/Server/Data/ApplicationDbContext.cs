@@ -1,4 +1,4 @@
-﻿using BlazorApp2.Server.Models;
+﻿using BlazorApp2.Shared;
 using Duende.IdentityServer.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Identity;
@@ -17,14 +17,16 @@ namespace BlazorApp2.Server.Data
 
         public DbSet<ThiSinh> ThiSinh { get; set; }
         public DbSet<HinhAnh> HinhAnh { get; set; }
+        public DbSet<Account> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<ApplicationUser>(b =>
-            {
-                b.ToTable("Users");
-            });
+            //builder.Entity<ApplicationUser>(b =>
+            //{
+            //    b.ToTable("Users");
+            //    b.HasKey("Id");
+            //});
 
             builder.Entity<IdentityUserClaim<string>>(b =>
             {
