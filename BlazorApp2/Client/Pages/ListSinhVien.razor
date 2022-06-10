@@ -22,7 +22,7 @@
 		</tr>
 	</thead>
     <tbody>
-        @foreach (var thish in Sinhvientrungtuyen.thisinhs)
+        @foreach (var thish in onethisinh)
        {
             <tr>
                 <td>@thish.HoTen</td>
@@ -37,15 +37,15 @@
                 </td>
             </tr>           
        }
-    </tbody>
-    <br />
-    <tfoot>
+       <tfoot>
         <Pagination TotalPages="@(totalPages != 0 ? totalPages : 1)"
                     PageIndex="@PageIndex"
                     Radius="3"
                     OnSelectedPage="@SelectedPage">
         </Pagination>
     </tfoot>
+    </tbody>
+    <br />
   <button class="btn btn-outline-success" @onclick="Createthish">Create Sinh Viên</button>
 </table>
 @code {
@@ -58,14 +58,17 @@
 
     protected override async Task OnInitializedAsync()
     {
-         await Sinhvientrungtuyen.Getthisinh();
+        await Sinhvientrungtuyen.Getthisinh();
         if (Sinhvientrungtuyen != null)
         {
             // Initialize the number of "totalPages"
-            totalPages = (int)(onethisinh.Count() / itemsPerPage);
+
 
             // Initialize the "comments" which will be displayed when the page loaded first time.
+            onethisinh = Sinhvientrungtuyen.thisinhs.ToList();
+            totalPages = (int)Math.Ceiling((onethisinh.Count() / (decimal)itemsPerPage));
             onethisinh = Sinhvientrungtuyen.thisinhs.ToList().Skip(0).Take(itemsPerPage);
+            Console.WriteLine(totalPages);
         }
         
     }
@@ -83,7 +86,7 @@
         {
             PageIndex = selectedPageIndex;
             var skipCount = itemsPerPage * (PageIndex - 1);
-            onethisinh = Sinhvientrungtuyen.thisinhs.ToList().Skip(skipCount).Take(itemsPerPage);
+            onethisinh = Sinhvientrungtuyen.thisinhs.ToList().Skip(skipCount).Take(itemsPerPage).ToList();
         }
     }
 }

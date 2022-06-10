@@ -7,7 +7,6 @@ using BlazorApp2.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using BlazorApp2.Client.Services.SinhvienServices;
 using MudBlazor.Services;
 
 namespace Company.WebApplication1
