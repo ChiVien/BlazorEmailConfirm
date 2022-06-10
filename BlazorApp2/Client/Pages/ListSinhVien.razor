@@ -26,14 +26,14 @@
                 <td>@thish.CBTuVan</td>
                 <td>@thish.TrangThai</td>
                 <td>
-                    <button class="btn btn-primary" @onclick="(()=>showthish(thish.Id))"><i class="oi oi-pencil"></i></button>
+                    <button class="btn btn-outline-warning" @onclick="(()=>showthish(thish.Id))"><i class="oi oi-pencil"></i></button>
                     @*<button class="btn btn-primary" @onclick="Createthish"><i class="oi oi-plus"></i></button>*@
                 </td>
             </tr>           
        }
     </tbody>
     <br />
-  <button class="btn btn-primary" @onclick="Createthish">Create Sinh Viên</button>
+  <button class="btn btn-outline-success" @onclick="Createthish">Create Sinh Viên</button>
 </table>
 @code {
     protected override async Task OnInitializedAsync()

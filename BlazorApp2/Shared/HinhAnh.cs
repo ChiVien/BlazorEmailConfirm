@@ -10,7 +10,7 @@ namespace BlazorApp2.Shared
     {
         public int Id { get; set; }
         public string Image { get; set; }
-        public ThiSinh ThiSinh { get; set; }
+        public ThiSinh? ThiSinh { get; set; }
 
     }
 }

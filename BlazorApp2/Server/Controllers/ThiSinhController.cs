@@ -16,14 +16,6 @@ namespace BlazorApp2.Server.Controllers
             _environment = environment;
         }
 
-        enum TrangThaiAnh
-        {
-            Moi,
-            Cu,
-            Xoa
-        }
-
-
         [HttpGet]
         public async Task<ActionResult<List<ThiSinh>>> GetThiSinh()
         {
@@ -36,7 +28,7 @@ namespace BlazorApp2.Server.Controllers
         {
 			IHinhAnhService _hinhAnhService = new HinhAnhService(_environment);
 
-			thiSinhData.images.ForEach(item =>
+			thiSinhData.images.ForEach(async item =>
 			{
 				HinhAnh image = new HinhAnh();
 				image.Image = _hinhAnhService.UploadFile(item.anh).Result;
@@ -71,28 +63,17 @@ namespace BlazorApp2.Server.Controllers
 
 			thiSinhData.images.ForEach(async item =>
 			{
-				switch (ThayDoiHinhAnh(item.status))
-				{
-					case TrangThaiAnh.Moi:
-						{
-							HinhAnh image = new HinhAnh();
-							image.Image = await _hinhAnhService.UploadFile(item.anh);
-							result.HinhAnhs.Add(image);
-							break;
-						}
-					case TrangThaiAnh.Cu:
-						break;
-					case TrangThaiAnh.Xoa:
-						{
-							var name = item.anh;
-							_hinhAnhService.DeleteFile(name);
-							result.HinhAnhs.RemoveAll(i => i.Image == name);
-						}
-						break;
-
-					default:
-						break;
-				}
+                if (item.status == 0) // cu
+                {
+                    HinhAnh image = new HinhAnh();
+                    image.Image = await _hinhAnhService.UploadFile(item.anh);
+                    result.HinhAnhs.Add(image);
+                }else if(item.status == 2)//xoa
+                {
+                    var name = item.anh;
+                    _hinhAnhService.DeleteFile(name);
+                    result.HinhAnhs.RemoveAll(i => i.Image == name);
+                }
 			});
 
 			foreach (PropertyInfo prop in result.GetType().GetProperties())
@@ -119,21 +100,6 @@ namespace BlazorApp2.Server.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(await GetDbThiSinh());
-        }
-
-        private TrangThaiAnh ThayDoiHinhAnh(int status)
-        {
-            switch (status)
-            {
-                case 0:
-                    return TrangThaiAnh.Moi;
-                case 1:
-                    return TrangThaiAnh.Cu;
-                case 2:
-                    return TrangThaiAnh.Xoa;
-                default:
-                    return TrangThaiAnh.Moi;
-            }
         }
 
         private async Task<List<ThiSinh>> GetDbThiSinh()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json;
 using System.Net.Http.Json;
 
 namespace BlazorApp2.Client.Services.SinhvienServices
@@ -16,11 +17,14 @@ namespace BlazorApp2.Client.Services.SinhvienServices
         public List<ThiSinh> thisinhs { get; set; } = new List<ThiSinh>();
         public HttpClient Http { get; }
 
-        public async Task CreateThiSinh(ThiSinh thiSinh)
+        public async Task CreateThiSinh(ThiSinh thiSinh,List<AnhUpload> anhUploads)
         {
-            ThiSinhData thiSinhData= new ThiSinhData(thiSinh);
-            var result = await _http.PostAsJsonAsync("api/thisinh", thiSinhData);
-            await SetThiSinhssr(result);
+            ThiSinhData thiSinhData = new ThiSinhData(anhUploads, thiSinh);
+            using (var content = new StringContent(JsonConvert.SerializeObject(thiSinhData), System.Text.Encoding.UTF8, "application/json"))
+            {
+                var result =  await _http.PostAsync("api/thisinh", content);
+                await SetThiSinhssr(result);
+            }
         }
 
 		private async Task SetThiSinhssr(HttpResponseMessage result)
@@ -52,11 +56,16 @@ namespace BlazorApp2.Client.Services.SinhvienServices
 
         }
 
-        public async Task UpdateThiSinh(ThiSinh thiSinh)
+        public async Task UpdateThiSinh(ThiSinh thiSinh, List<AnhUpload> anhUploads)
         {
-            ThiSinhData thiSinhData = new ThiSinhData(thiSinh);
-            var result = await _http.PutAsJsonAsync($"api/thisinh/{thiSinh.Id}", thiSinhData);
-            await SetThiSinhssr(result); 
+            ThiSinhData thiSinhData = new ThiSinhData(anhUploads, thiSinh);
+            /*var result = await _http.PutAsJsonAsync($"api/thisinh/{thiSinh.Id}", thiSinhData);*/
+            using (var content = new StringContent(JsonConvert.SerializeObject(thiSinhData), System.Text.Encoding.UTF8, "application/json"))
+            {
+                var result = await _http.PutAsync($"api/thisinh/{thiSinh.Id}", content);
+                await SetThiSinhssr(result);
+            }
+                
         }
     }
 }
