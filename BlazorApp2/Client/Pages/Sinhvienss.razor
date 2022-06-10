@@ -1,7 +1,12 @@
 ﻿@page "/thisinh"
 @page "/thisinh/{id:int}"
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @inject ISinhvientrungtuyen Sinhvientrungtuyen
 @inject NavigationManager NavigationManager
+@attribute [Authorize]
 
 @if (Id == null)
 {

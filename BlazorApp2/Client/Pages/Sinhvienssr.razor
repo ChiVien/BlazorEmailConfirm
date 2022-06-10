@@ -1,6 +1,11 @@
 ﻿@page "/sinhvienss"
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @inject ISinhvientrungtuyen Sinhvientrungtuyen
 @inject NavigationManager NavigationManager
+@attribute [Authorize]
 <h3>Sinh Viên</h3>
 
 <table class="table">

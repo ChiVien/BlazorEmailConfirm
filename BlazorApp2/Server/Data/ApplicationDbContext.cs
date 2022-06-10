@@ -20,7 +20,7 @@ namespace BlazorApp2.Server.Data
         public DbSet<Account> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(builder);  
 
             //builder.Entity<ApplicationUser>(b =>
             //{
