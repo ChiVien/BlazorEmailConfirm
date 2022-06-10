@@ -1,5 +1,4 @@
 ﻿using BlazorApp2.Shared.PageSetUp;
-using System.Management.Automation;
 
 namespace BlazorApp2.Client.Services.SinhvienServices
 {
