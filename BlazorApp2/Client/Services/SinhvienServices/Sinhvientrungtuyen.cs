@@ -9,11 +9,11 @@ namespace BlazorApp2.Client.Services.SinhvienServices
         private readonly HttpClient _http;
 		private readonly NavigationManager _navigationManager;
 
-		public Sinhvientrungtuyen(HttpClient http,NavigationManager navigationManager)
+		public Sinhvientrungtuyen(HttpClient http, NavigationManager navigationManager)
         {
             _http = http;
-			_navigationManager = navigationManager;
-		}
+            _navigationManager = navigationManager;
+        }
         public List<ThiSinh> thisinhs { get; set; } = new List<ThiSinh>();
         public HttpClient Http { get; }
 

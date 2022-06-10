@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlazorApp2.Shared.PageSetUp;
 
 namespace BlazorApp2.Shared
 {

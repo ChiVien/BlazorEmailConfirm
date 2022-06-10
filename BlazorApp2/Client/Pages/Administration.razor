@@ -13,7 +13,7 @@
 
 <AuthorizeView>
     <Authorized>
-        <samp href="authentication/profile">Hello, @context.User.Identity?.Name! </samp>
+        <samp href="authentication/profile">Hello @context.User.Identity?.Name! </samp>
     </Authorized>
     <NotAuthorized>
         <p>You're not loggged in.</p>
