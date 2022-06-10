@@ -14,10 +14,10 @@ namespace BlazorApp2.Shared
         public List<AnhUpload> images { get; set; }
         public ThiSinh thiSinh { get; set; }
 
-        public ThiSinhData(ThiSinh thiSinh)
+        public ThiSinhData(List<AnhUpload> images, ThiSinh thiSinh)
         {
-            this.images = new List<AnhUpload>();
-            this.thiSinh = thiSinh;
+            this.images = images;
+            this.thiSinh = thiSinh; 
         }
     }
 }

@@ -51,6 +51,10 @@
                     Directory.CreateDirectory(directory);
                 }
                 var data = img.Substring(0, 5);
+                if(data == "data:")
+                {
+                    img = img.Substring(img.IndexOf(",")+1);
+                }
                 var extension = Extension(data);
                 var imageName = string.Format(@"{0}", Guid.NewGuid()) + extension;
 
