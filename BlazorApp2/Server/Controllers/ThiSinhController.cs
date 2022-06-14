@@ -31,7 +31,7 @@ namespace BlazorApp2.Server.Controllers
 			thiSinhData.images.ForEach(async item =>
 			{
 				HinhAnh image = new HinhAnh();
-				image.Image = _hinhAnhService.UploadFile(item.anh).Result;
+                image.Image = item.anh;
 				thiSinhData.thiSinh.HinhAnhs.Add(image);
 			});
 
@@ -63,15 +63,14 @@ namespace BlazorApp2.Server.Controllers
 
 			thiSinhData.images.ForEach(async item =>
 			{
-                if (item.status == 0) // cu
+                if (item.status == 0) // moi
                 {
                     HinhAnh image = new HinhAnh();
-                    image.Image = await _hinhAnhService.UploadFile(item.anh);
+                    image.Image = item.anh;
                     result.HinhAnhs.Add(image);
                 }else if(item.status == 2)//xoa
                 {
                     var name = item.anh;
-                    _hinhAnhService.DeleteFile(name);
                     result.HinhAnhs.RemoveAll(i => i.Image == name);
                 }
 			});
@@ -96,6 +95,7 @@ namespace BlazorApp2.Server.Controllers
             {
                 return NotFound("Khong tim thay thi sinh");
             }
+            _context.HinhAnh.RemoveRange(result.HinhAnhs);
             _context.ThiSinh.Remove(result);
             await _context.SaveChangesAsync();
 

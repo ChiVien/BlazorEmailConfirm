@@ -7,9 +7,18 @@
 @inject ISinhvientrungtuyen Sinhvientrungtuyen
 @inject NavigationManager NavigationManager
 @attribute [Authorize]
-<h3>Sinh Viên</h3>
+<PageTitle>Sinh Viên VIDO</PageTitle>
+<h3 style="color:darkorange">Sinh Viên VIDO</h3>
 
-<table class="table">
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<td>Họ Tên</td>
@@ -70,7 +79,7 @@
         
     }
     void showthish(int id)
-    {
+    { 
         NavigationManager.NavigateTo($"thisinh/{id}");
     }
      void Createthish()

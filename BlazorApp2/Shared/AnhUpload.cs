@@ -13,5 +13,15 @@ namespace BlazorApp2.Shared
     {
         public string anh;
         public int status;
+        public AnhUpload()
+        {
+
+        }
+
+        public AnhUpload(string anh)
+        {
+            this.anh = anh;
+            this.status = 1;
+        }
     }
 }

@@ -13,14 +13,14 @@ namespace BlazorApp2.Shared
         public string HoTen { get; set; }
         public string Cmnd { get; set; } = "000000000";
         public string NgaySinh { get; set; } = "7/7/2022";
-        public string? GioiTinh { get; set; }
-        public string BacHoc { get; set; } = "Dai Hoc";
+        public string GioiTinh { get; set; }
+        public string BacHoc { get; set; }
         public string MaNganhXetTuyen { get; set; }
         public string? DoiTuong { get; set; }
         public int DiemUuTienDT { get; set; } = 1;
-        public string? KhuVuc { get; set; } = "KV_HG";
+        public string? KhuVuc { get; set; }
         public double DiemUuTienKV { get; set; } = 1;
-        public string KhoiXetTuyen { get; set; } = "1";
+        public string KhoiXetTuyen { get; set; }
         public string? Mon1 { get; set; } = "1";
         public string? Mon2 { get; set; } = "1";
         public string? Mon3 { get; set; } = "1";
