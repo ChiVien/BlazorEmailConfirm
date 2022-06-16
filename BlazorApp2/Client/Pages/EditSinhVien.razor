@@ -52,116 +52,10 @@ else
 	<h4 class="text-center">(Dành cho thí sinh đã tốt nghiệp THCS/THPT)</h4>
 }
 
-<EditForm Model="thish" OnSubmit="HandleSubmit">
-@switch (test)
-{
-	case 1:
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		break;
-	case 2:
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">TB:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">TB:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">Hk2:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">TB:(*)</label>
-				<InputText id="cmnd"@bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		break;
-	case 3:
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd" @bind-Value="thish.HoTen"class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd"@bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<label for="inputEmail3" class="form-label">HK1:(*)</label>
-				<InputText id="cmnd"@bind-Value="thish.HoTen" class="form-control"></InputText>
-			</div>
-		</div>
-		break;
-	default:
-		break;
-}
-</EditForm>
 
 <EditForm Model="thish" OnSubmit="HandleSubmit">
-	<InputSelect id="manganhxettuyen" @bind-Value="test" class="form-select">
-		<option selected value=1>Xet 2 HK lop 12</option>
-		<option value=2>Xét 2 HK lớp 11 và HK 1 lớp 12</option>
-		<option value=3>Xét điểm trung bình cả năm lớp 12 của tổ hợp 3 môn</option>
-	</InputSelect>
+	<DataAnnotationsValidator/>
+	
 	<form class="row g-3">
 		@*Thông tin cá nhân*@
 		<h6>1.Thông Tin Thí Sinh:</h6>
@@ -169,6 +63,7 @@ else
 		<div class="col-md-8">
 			<label for="inputEmail3" class="form-label">Họ và tên: (*)</label>
 				<InputText id="hoten" @bind-Value="thish.HoTen" class="form-control"></InputText>
+				<ValidationMessage For="()=>thish.HoTen"></ValidationMessage>
 		</div>
 		<div class="col-md-3"></div>
 		@*Infor*@
@@ -184,14 +79,17 @@ else
 		<div class="col-md-2">
 			<label for="inputEmail3" class="form-label">Ngày sinh: (dd/mm/yyyy) (*)</label>
 				<InputText id="ngaysinh" @bind-Value="thish.NgaySinh" class="form-control"></InputText>
+				<ValidationMessage For="()=>thish.NgaySinh"></ValidationMessage>
 		</div>
 		<div class="col-md-2">
 			<label for="sdt" class="form-label">Số Điện Thoại:</label>
 			<InputText id="sdt" @bind-Value="thish.Sdt" class="form-control"></InputText>
+			<ValidationMessage For="()=>thish.Sdt"></ValidationMessage>
 		</div>
 		<div class="col-md-2">
 			<label for="inputEmail3" class="form-label">CMND:(*)</label>
 				<InputText id="cmnd" @bind-Value="thish.Cmnd" class="form-control"></InputText>
+				<ValidationMessage For="()=>thish.Cmnd"></ValidationMessage>
 		</div>
 		<div class="col-md-3"></div>
 		@*Infor2*@
@@ -199,17 +97,20 @@ else
 		<div class="col-md-5">
 			<label for="diachi" class="form-label">Địa Chỉ:</label>
 			<InputText id="diachi" @bind-Value="thish.Diachi" class="form-control"></InputText>
+			<ValidationMessage For="()=>thish.Diachi"></ValidationMessage>
 		</div>
 		<div class="col-md-3">
 			<label for="email" class="form-label">Email:</label>
 			<InputText id="email" @bind-Value="thish.Email" class="form-control"></InputText>
+			<ValidationMessage For="()=>thish.Email"></ValidationMessage>
 		</div>
+		<div class="col-md-3"></div>
 		@*Ngành học*@
-		<h6>2.Xét Tuyển:</h6>
 		<div class="col-md-1"></div>
 		<div class="col-md-8">
 			<label for="inputEmail3" class="form-label">Đăng ký bậc học: (*)</label>
 				<InputSelect id="Bachoc" @bind-Value="thish.BacHoc" class="form-select">
+					<ValidationMessage For="()=>thish.BacHoc"></ValidationMessage>
 					<option selected>Chọn</option>
 					<option>Hệ Đại Học (Liên kết đào tạo từ xa Đại Học Cần Thơ</option>
 					<option>Cao đẳng chính quy</option>
@@ -232,6 +133,7 @@ else
 		<div class="col-md-4">
 			<label for="inputEmail3" class="form-label">Ngành học:(*)</label>
 				<InputSelect id="manganhxettuyen" @bind-Value="thish.MaNganhXetTuyen" class="form-select">
+					<ValidationMessage For="()=>thish.MaNganhXetTuyen"></ValidationMessage>
 					<option selected>Chọn</option>
 					<option>Công nghệ kỹ thuật cơ khí</option>
 					<option>CNKT Ô tô (Quản trị vận tải Ô tô)</option>
@@ -248,8 +150,9 @@ else
 		<div class="col-md-4">
 			<label for="khoixettuyen" class="form-label">Khối Xét Tuyển: (*)</label>
 				<InputSelect id="khoixettuyen" @bind-Value="thish.KhoiXetTuyen" class="form-select">
+					<ValidationMessage For="()=>thish.KhoiXetTuyen"></ValidationMessage>
 					<option value="">Chọn</option>
-					<option value="A00">A00-Toán-Lý-Hóa</option>
+					<option value="A00-Toán-Lý-Hóa">A00-Toán-Lý-Hóa</option>
 					<option value="A01">A01-Toán-Lý-Anh</option>
 					<option value="C01">C01-Toán-Văn-Lý</option>
 					<option value="D01">D01-Toán-Văn-Anh</option>
@@ -263,6 +166,7 @@ else
 		<div class="col-md-2">
 			<label for="inputEmail3" class="form-label">Đối tượng ưu tiên:</label>
 				<InputSelect id="doituong" @bind-Value="thish.DoiTuong" class="form-select">
+				
 					<option value="">Chọn</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -276,6 +180,7 @@ else
 		<div class="col-md-2">
 			<label for="khuvuc"  class="form-label">Khu Vực:</label>
 				<InputSelect id="khuvuc" @bind-Value="thish.KhuVuc" class="form-select">
+				
 					<option value="">Chọn</option>
 					<option value="KV2NT">KV2NT</option>
 					<option value="KV1">KV1</option>
@@ -287,145 +192,243 @@ else
 		<div class="col-md-2">
 			<label for="diemuutiendt" class="form-label">Điểm Ưu Tiên DT:</label>
 				<InputNumber id="diemuutiendt" @bind-Value="thish.DiemUuTienDT" class="form-control"></InputNumber>
+			
 		</div>
 		<div class="col-md-2">
 			<label for="diemuutienkv" class="form-label">Điểm Ưu Tiên KV:</label>
 			<InputNumber id="diemuutienkv" @bind-Value="thish.DiemUuTienKV" class="form-control"></InputNumber>
+			
 		</div>
 		
 		<div class="col-md-3"></div>
-		@*----*@
-		<h6>3.Xét Tuyển theo kỳ thi THPT Quốc Gia:</h6>
+		@*----------------------------------------------------------------------------------*@
+		<h6>2.Xét tuyển từ kết quả học bạ THPT/THBT:</h6>
+		<div class="col-md-1"></div>
+		<div class="col-md-5">
+			<InputSelect id="manganhxettuyen" @bind-Value="test" class="form-select">
+				<option value="XT1" selected>Xét 2 HK lớp 12</option>
+				<option value="XT2">Xét 2 HK lớp 11 và HK 1 lớp 12</option>
+				<option value="XT3">Xét điểm trung bình cả năm lớp 12 của tổ hợp 3 môn</option>
+				<option value="XT4">Xét điểm trung bình cả năm lớp 12</option>
+				<option value="XT5">Xét điểm trung bình các HK lớp 12</option>
+			</InputSelect>
+		</div>
+		@*----------------------------------------------------------------------------------*@
+
+
+@switch (test)
+{
+	case "XT1":
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn1 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem1112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem1112"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn1 HK2 Lớp12:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem1212" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem1212"></ValidationMessage>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn2 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem2112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2112"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn2 HK2 Lớp12:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem2212" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2212"></ValidationMessage>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn3 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem3112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem3112"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn3 HK2 Lớp12:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem3212" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem3212"></ValidationMessage>
+			</div>
+		</div>
+		break;
+	case "XT2":
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn1 HK1 Lớp11:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem1111" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem1111"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn1 HK2 Lớp11:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem1211" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem1211"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn1 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem1112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem1112"></ValidationMessage>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn2 HK1 Lớp11:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem2111" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2111"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn2 HK2 Lớp11:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem2211" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2211"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn2 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem2112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2112"></ValidationMessage>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn3 HK1 Lớp11:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem3111" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem3111"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1212" class="form-label">Điểm Môn3 HK2 Lớp11:</label>
+				<InputNumber id="diem1212" @bind-Value="thish.Diem3211" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem3211"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="diem1112" class="form-label">Điểm Môn3 HK1 Lớp12:</label>
+				<InputNumber id="diem1112" @bind-Value="thish.Diem3112" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem3112"></ValidationMessage>
+			</div>
+		</div>
+		break;
+	case "XT3":
+		<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-2">
-			<label for="mon1" class="form-label">Môn 1:</label>
-			<InputText id="mon1" @bind-Value="thish.Mon1" class="form-control"></InputText>
+				<label for="mon2" class="form-label">Điểm TB 12:</label>
+				<InputNumber id="mon2" @bind-Value="thish.Diem1TB12" class="form-control">Môn 1</InputNumber>
+				<ValidationMessage For="()=>thish.Diem1TB12"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="mon2" class="form-label">Điểm TB 12:</label>
+				<InputNumber id="mon2" @bind-Value="thish.Diem2TB12" class="form-control">Môn 2</InputNumber>
+				<ValidationMessage For="()=>thish.Diem2TB12"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="mon3" class="form-label">Điểm TB 12:</label>
+				<InputNumber id="mon3" @bind-Value="thish.Diem3TB12" class="form-control">Môn 3</InputNumber>
+				<ValidationMessage For="()=>thish.Diem3TB12"></ValidationMessage>
+			</div>
+			<div class="col-md-5"></div>
 		</div>
-		<div class="col-md-2">
-			<label for="mon2" class="form-label">Môn 2:</label>
-			<InputText id="mon2" @bind-Value="thish.Mon2" class="form-control"></InputText>
+		break;
+	case "XT4":
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="mon1" class="form-label">Điểm TB 12:</label>
+				<InputNumber id="mon1" @bind-Value="thish.Diem2TB12" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Diem2TB12"></ValidationMessage>
+			</div>
 		</div>
-		<div class="col-md-2">
-			<label for="mon3" class="form-label">Môn 3:</label>
-			<InputText id="mon3" @bind-Value="thish.Mon3" class="form-control"></InputText>
+		break;
+	case "XT5":
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="mon1" class="form-label">Điểm TB:</label>
+				<InputNumber id="mon1" @bind-Value="thish.Tong" class="form-control"></InputNumber>
+				<ValidationMessage For="()=>thish.Tong"></ValidationMessage>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<label for="mon1" class="form-label">Điểm TB:</label>
+				<InputNumber id="mon1" @bind-Value="thish.Tong" class="form-control"></InputNumber>
+				
+			</div>
 		</div>
-		<div class="col-md-5"></div>
-		@*----*@
-		<div class="col-md-1"></div>
-		<div class="col-md-1">
-			<label for="diem1111" class="form-label">Điểm1111:</label>
-			<InputNumber id="diem1111" @bind-Value="thish.Diem1111" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem1211" class="form-label">Điểm1211:</label>
-			<InputNumber id="diem1211" @bind-Value="thish.Diem1211" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem1112" class="form-label">Điểm1112:</label>
-			<InputNumber id="diem1112" @bind-Value="thish.Diem1112" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem1212" class="form-label">Điểm1212:</label>
-			<InputNumber id="diem1212" @bind-Value="thish.Diem1212" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem1TB12" class="form-label">Điểm1TB12:</label>
-			<InputNumber id="diem1TB12" @bind-Value="thish.Diem1TB12" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-6"></div>
-		@*----*@
-		<div class="col-md-1"></div>
-		<div class="col-md-1">
-			<label for="diem2111" class="form-label">Điểm2111:</label>
-			<InputNumber id="diem2111" @bind-Value="thish.Diem2111" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem2211" class="form-label">Điểm2211:</label>
-			<InputNumber id="diem2211" @bind-Value="thish.Diem2211" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem2112" class="form-label">Điểm2112:</label>
-			<InputNumber id="diem2112" @bind-Value="thish.Diem2112" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem2212" class="form-label">Điểm2212:</label>
-			<InputNumber id="diem2212" @bind-Value="thish.Diem2212" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem2TB12" class="form-label">Điểm2TB12:</label>
-			<InputNumber id="diem2TB12" @bind-Value="thish.Diem2TB12" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-6"></div>
-		@*----*@
-		<div class="col-md-1"></div>
-		<div class="col-md-1">
-			<label for="diem3111" class="form-label">Điểm3111:</label>
-			<InputNumber id="diem3111" @bind-Value="thish.Diem3111" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem3211" class="form-label">Điểm3211:</label>
-			<InputNumber id="diem3211" @bind-Value="thish.Diem3211" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem3112" class="form-label">Điểm3112:</label>
-			<InputNumber id="diem3112" @bind-Value="thish.Diem3112" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem3212" class="form-label">Diem3212:</label>
-			<InputNumber id="Diem3212" @bind-Value="thish.Diem3212" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-1">
-			<label for="diem3TB12" class="form-label">Điểm3TB12:</label>
-			<InputNumber id="diem3TB12" @bind-Value="thish.Diem3TB12" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-6"></div>
-		@*----*@
-		<h6>4.Xét tuyển từ kết quả học bạ THPT/THBT:</h6>
+		break;
+	default:
+		break;
+}
+
+		@*----------------------------------------------------------------------------------*@
 		<div class="col-md-1"></div>
 		<div class="col-md-6">
 			<label for="truongTHPT" class="form-label">Trường THPT:</label>
 			<InputText id="truongTHPT" @bind-Value="thish.TruongTHPT" class="form-control"></InputText>
+		
 		</div>
 		<div class="col-md-5"></div>
 		<div class="col-md-1"></div>
 		<div class="col-md-3">
-			<label for="hK11" class="form-label">HK11:</label>
+			<label for="hK11" class="form-label">Hạnh Kiểm 11:</label>
 			<InputText id="hK11" @bind-Value="thish.HK11" class="form-control"></InputText>
+		
 		</div>
 		<div class="col-md-3">
-			<label for="hK12" class="form-label">HK12:</label>
+			<label for="hK12" class="form-label">Hạnh Kiểm 12:</label>
 			<InputText id="hK12" @bind-Value="thish.HK12" class="form-control"></InputText>
+			
 		</div>
 		<div class="col-md-5"></div>
-		<div class="col-md-1"></div>
-		<div class="col-md-2">
-			<label for="diem1" class="form-label">Điểm 1:</label>
-			<InputNumber id="diem1" @bind-Value="thish.diem1" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-2">
-			<label for="diem2" class="form-label">Điểm 2:</label>
-			<InputNumber id="diem2" @bind-Value="thish.diem2" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-2">
-			<label for="diem3" class="form-label">Điểm 3:</label>
-			<InputNumber id="diem3" @bind-Value="thish.diem3" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-2">
-			<label for="tong" class="form-label">Tổng:</label>
-			<InputNumber id="tong" @bind-Value="thish.Tong" class="form-control"></InputNumber>
-		</div>
-		<div class="col-md-3"></div>
+		@*----------------------------------------------------------------------------------*@
+		<h6>4.Xét tuyển từ kết quả kỳ thi THPT Quốc gia:</h6>
 		<div class="col-md-1"></div>
 		<div class="col-md-3">
 			<label for="maDKXT" class="form-label">Mã ĐKXT:</label>
 			<InputNumber id="maDKXT" @bind-Value="thish.MaDKXT" class="form-control"></InputNumber>
+			<ValidationMessage For="()=>thish.MaDKXT"></ValidationMessage>
 		</div>
 		<div class="col-md-8"></div>
+		<div class="col-md-1"></div>
+		<div class="col-md-2">
+			<label for="diem1" class="form-label">Điểm 1:</label>
+			<InputNumber id="diem1" @bind-Value="thish.diem1" class="form-control"></InputNumber>
+			<ValidationMessage For="()=>thish.diem1"></ValidationMessage>
+		</div>
+		<div class="col-md-2">
+			<label for="diem2" class="form-label">Điểm 2:</label>
+			<InputNumber id="diem2" @bind-Value="thish.diem2" class="form-control"></InputNumber>
+			<ValidationMessage For="()=>thish.diem2"></ValidationMessage>
+		</div>
+		<div class="col-md-2">
+			<label for="diem3" class="form-label">Điểm 3:</label>
+			<InputNumber id="diem3" @bind-Value="thish.diem3" class="form-control"></InputNumber>
+			<ValidationMessage For="()=>thish.diem3"></ValidationMessage>
+			
+		</div>
 		<h6>5.Thông tin liên lạc:</h6>
 		<div class="col-md-1"></div>
 		<div class="col-md-3">
 			<label for="canbotuvan" class="form-label">Cán bộ tư vấn:</label>
 			<InputText id="canbotuvan" @bind-Value="thish.CBTuVan" class="form-control"></InputText>
+			<ValidationMessage For="()=>thish.CBTuVan"></ValidationMessage>
 		</div>
 		<div class="col-md-1"></div>
 		<div class="col-md-3">
@@ -454,7 +457,7 @@ else
 	private bool arrows = true;
 	private bool bullets = true;
 	private bool autocycle = true;
-	private int test = 1;
+	private string test = "XT1";
 	private Transition transition = Transition.Slide;
 
 
