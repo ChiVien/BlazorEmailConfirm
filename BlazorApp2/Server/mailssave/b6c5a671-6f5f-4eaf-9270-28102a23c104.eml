@@ -1,0 +1,10 @@
+From: Blazor <reddragon2000vn@gmail.com>
+Date: Thu, 16 Jun 2022 09:00:05 +0700
+Subject: Confirm your email
+Message-Id: <D2LX34K04HU4.AEB1MUC6804B2@desktop-mt3c507>
+Sender: Blazor <reddragon2000vn@gmail.com>
+To: chivien2000vn@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+Please confirm your account by <a href='https://localhost:7279/Identity/Account/ConfirmEmail?userId=61162186-20ad-4b48-bfd4-3452c8514fa5&amp;code=Q2ZESjhGdVpWaHgwczdCT2xpSzI4U0YxMHhkZXFIandpb1c4RXVSbVB1blJTODIyNFpFV2VtaXVkWHlMWXRoU25xVXBjWjVpQVIyaDZwendLMnJ4OXhadHQ2ZDMwa2JsYmx6UEwzLzFlNjhFYXlISmhLVmJuTHEreUlCdEZOQkY4U0hxN3dLbmd6ZEF0MEhvYjRjZFY1MjI0Y0tpTWg1eG5uemhQdTc1V1VrUHVqRnlCU1BIN0kydHFGTElNMXhPdkZXalZEMVh1NmZ3M2F1eksxa1FVRUR6eEZHSkNEcmRVb1dMeXhFSm01MDVCaklSZGxjRUw1QmdhK3p1dHRZSkZ6MUxWdz09&amp;returnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DBlazorApp2.Client%26redirect_uri%3Dhttps%253A%252F%252Flocalhost%253A7279%252Fauthentication%252Flogin-callback%26response_type%3Dcode%26scope%3DBlazorApp2.ServerAPI%2520openid%2520profile%26state%3D334b28e3d939412fb4b7436a22abf009%26code_challenge%3DzfOsSYi1bH49nyrB8yiy9TiufQ0TU0rcOrBDv-2Za9c%26code_challenge_method%3DS256%26response_mode%3Dquery'>clicking here</a>.
