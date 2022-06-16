@@ -1,0 +1,10 @@
+From: Blazor <reddragon2000vn@gmail.com>
+Date: Thu, 16 Jun 2022 09:07:30 +0700
+Subject: Confirm your email
+Message-Id: <M3NJM5M04HU4.MXXGDEXI1LIP3@desktop-mt3c507>
+Sender: Blazor <reddragon2000vn@gmail.com>
+To: chivien2000vn@gmail.com
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+Please confirm your account by <a href='https://localhost:7279/Identity/Account/ConfirmEmail?userId=6ca32b07-c629-4d10-8c58-7abe1f422626&amp;code=Q2ZESjhGdVpWaHgwczdCT2xpSzI4U0YxMHhmUmluNUpPSzNrMUtnQ3FsaFQ5TTkzdDdnRmQwN1NxWmpjbGp2YlduRENYTXYrY0tpRnA0V0xSWnpscCtrbVNwV3Q4cjB4ZXBpRWo1T001MTE0ZHJCNC9aNGdqaDRiTmNURWJYNGVCL3o4NFdneE9aNllEVlRXNkFTazc4Rlp5M1ppY255Uzl5Q1ptTnpvQmZGVmZSOForNzVGUXBEZkY5QTZrcWpGUjIwQXkzM0xCT0pEaHZNUnY3ampid1l5TlYyS2RYQTdpRkpXYWV5UnA2cEE3dFBLR3lZZkV1Uk1TVER0Y1FMZFJXSUZDZz09&amp;returnUrl=%2Fauthentication%2Flogin'>clicking here</a>.
